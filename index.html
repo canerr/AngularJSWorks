@@ -1,0 +1,81 @@
+<!doctype html>
+<html ng-app="myModule">
+
+	<head>
+		<script src="angular.min.js"></script>
+		<script src="script.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<div ng-controller="myController">
+			<table>
+				<thead>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Gender</th>
+						<th>Salary</th>
+						<th>Increase/Decrease</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in employees">
+						<td>{{ employee.firstName }}</td>
+						<td>{{ employee.lastName }}</td>
+						<td>{{ employee.gender }}</td>
+						<td>{{ employee.salary }}</td>
+						<td>
+							<input type="button" value="Increase" ng-click="increaseSalary(employee)" />
+							<input type="button" value="Decrease" ng-click="decreaseSalary(employee)" />
+						<td>
+					</tr>
+					<tr>
+						<td>Avg Salary: {{ getAvgSalary() }}</td>
+						<td>Total Salary: {{ getTotalSalary() }}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			Increase/Decrease rate: <input type="text" ng-model="salaryDelta" />
+			
+			</br>
+			</br>
+			</br>
+			</br>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Gender</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="text" ng-model="txtFirstname" />
+						</td>
+						<td>
+							<input type="text" ng-model="txtLastname" />
+						</td>
+						<td>
+							<input type="text" ng-model="txtGender" />
+						</td>
+						<td>
+							<input type="text" ng-model="txtSalary" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" ng-click="save()" value="Save" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>
